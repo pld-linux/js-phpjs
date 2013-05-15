@@ -2,7 +2,7 @@ Summary:	Use PHP functions in JavaScript
 Name:		js-phpjs
 # there seems not to be any unified version
 Version:	0.1
-Release:	2
+Release:	3
 License:	GPL, MIT
 Group:		Applications/WWW
 Source0:	https://github.com/kvz/phpjs/tarball/master/%{name}.tgz
@@ -60,7 +60,7 @@ cp -a build/functions/* $RPM_BUILD_ROOT%{_appdir}
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
-cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
+cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT

@@ -5,7 +5,7 @@ Version:	0.1
 Release:	2
 License:	GPL, MIT
 Group:		Applications/WWW
-Source0:	https://github.com/kvz/phpjs/tarball/master#/%{name}.tgz
+Source0:	https://github.com/kvz/phpjs/tarball/master/%{name}.tgz
 # Source0-md5:	1a6fa88ed91ba6ee1f36d5729f6b8470
 Source1:	apache.conf
 Source2:	lighttpd.conf

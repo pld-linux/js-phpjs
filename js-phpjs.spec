@@ -9,7 +9,6 @@ Source0:	https://github.com/kvz/phpjs/tarball/master/%{name}.tgz
 # Source0-md5:	1a6fa88ed91ba6ee1f36d5729f6b8470
 Source1:	apache.conf
 Source2:	lighttpd.conf
-Source3:	httpd.conf
 URL:		http://www.phpjs.org/
 BuildRequires:	js
 BuildRequires:	rpmbuild(macros) >= 1.268
@@ -17,7 +16,6 @@ BuildRequires:	unzip
 BuildRequires:	yuicompressor
 Requires:	webserver(access)
 Requires:	webserver(alias)
-Conflicts:	apache-base < 2.4.0-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,7 +58,7 @@ cp -a build/functions/* $RPM_BUILD_ROOT%{_appdir}
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
-cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+cp -p $RPM_BUILD_ROOT%{_sysconfdir}/{apache,httpd}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,10 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 %triggerun -- apache1 < 1.3.37-3, apache1-base
 %webapp_unregister apache %{_webapp}
 
-%triggerin -- apache-base
+%triggerin -- apache < 2.2.0, apache-base
 %webapp_register httpd %{_webapp}
 
-%triggerun -- apache-base
+%triggerun -- apache < 2.2.0, apache-base
 %webapp_unregister httpd %{_webapp}
 
 %triggerin -- lighttpd

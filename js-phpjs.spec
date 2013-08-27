@@ -2,7 +2,7 @@ Summary:	Use PHP functions in JavaScript
 Name:		js-phpjs
 # there seems not to be any unified version
 Version:	0.1
-Release:	3
+Release:	4
 License:	GPL, MIT
 Group:		Applications/WWW
 Source0:	https://github.com/kvz/phpjs/tarball/master/%{name}.tgz
